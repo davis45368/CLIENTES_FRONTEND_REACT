@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(180deg, #212520 23%, #ecdede 25%);
+    height: 100%;
+    max-width: 100%;
+}
+
+.container-sm {
+    width: 70%;
+    height: auto;
+    background: #fffdff;
+    margin-top: 4%;
+    height: 100%;
+}
+
+li {
+    border-radius: 2%;
+}
+    
+.link {
+    color: #53bdeb;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.bg-curso {
+    background: #8540f5;
+}
