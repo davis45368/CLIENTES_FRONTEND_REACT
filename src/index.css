@@ -15,7 +15,7 @@ body {
 li {
     border-radius: 2%;
 }
-    
+
 .link {
     color: #53bdeb;
     text-transform: uppercase;
@@ -24,8 +24,4 @@ li {
 
 .link:hover {
     cursor: pointer;
-}
-
-.bg-curso {
-    background: #8540f5;
 }

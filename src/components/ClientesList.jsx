@@ -15,12 +15,14 @@ export function ClientesList() {
     const searcher = (e) => {
         setSearch(e.target.value)
     }
-
+    //Filtro por nombre y numero de documento
     const resultsNombre = !search ? clientes : clientes.filter((dato)=> dato.nombre_completo.toLowerCase().includes(search.toLocaleLowerCase()))
     const resultsDocumento = !search ? clientes : clientes.filter((dato)=> dato.numero_documento.toLowerCase().includes(search.toLocaleLowerCase()))
+    //Se agregan a una sola varible para validar si tienen datos
     const results = [resultsDocumento, resultsNombre] 
+
     useEffect( ()=> {
-        showData()
+        showData();
       }, [])
       
 

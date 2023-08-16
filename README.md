@@ -1,8 +1,33 @@
-# React + Vite
+# CLIENTES_API_REACT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Alt text](image.png)
 
-Currently, two official plugins are available:
+# Clientes App
+## Descripción 
+Se creo un aplicacion donde permite un CRUD basico de una lista de clientes
+en la cual se puede buscar por nombre y/o numero de documento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Rutas
+
+1. /clientes Lista de clientes
+2. /cliente/{id} Visulizacion y edicion de un cliente en especifico
+3. /cliente/add Creacion de clientes
+
+los datos se cargan desde uan API creada en Django Rest Framework
+
+[API](https://api-clientes-django.onrender.com/clientes/api/v1/cliente/) 
+
+ 
+
+## Clonar repositorio  
+```
+git clone https://github.com/davis45368/CLIENTES_FRONTEND_REACT.git 
+```
+
+ 
+
+## tecnologías
+***
+* [React](https://es.react.dev/): Version 18.2.0
+* [Vite](https://vitejs.dev/): Version 4.4.9
+
