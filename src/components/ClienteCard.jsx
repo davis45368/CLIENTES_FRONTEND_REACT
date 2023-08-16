@@ -42,7 +42,7 @@ export function ClienteCard({ cliente }) {
                                 '',
                                 'success'
                             )
-                            setTimeout(() => {window.location.reload();}, 2000)
+                            setTimeout(() => navigate('/'), 2000)
                         }
                     })
                 } }>
