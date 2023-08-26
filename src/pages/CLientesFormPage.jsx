@@ -37,7 +37,7 @@ export function ClienteFormPage() {
         toast.success('Cliente Creado')
       } catch (error) {
         console.error(error)
-        toast.error('Erro al Crear')
+        toast.error('Error al Crear')
       }
     }
   });
