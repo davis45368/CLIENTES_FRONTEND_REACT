@@ -12,7 +12,7 @@ export function ClienteCard({ cliente }) {
         <li className="list-group-item text-bg-secondary mt-1">
             <header className="d-flex justify-content-between">
                 <p className='link' onClick={() => {navigate(`/cliente/${cliente.id}`)}}>{cliente.nombre_completo}</p>
-                <p>Documento: {cliente.numero_documento}</p>
+                <p>Documento: {cliente.numero_documento} | <div className='tooltip-container'><span title=''>{cliente.tipo_documento}</span></div></p>
             </header>
             <div className='d-flex justify-content-between'>
                 <p>Correo: {cliente.email}</p>

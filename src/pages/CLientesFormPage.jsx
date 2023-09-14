@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { set, useForm } from 'react-hook-form';
-import { createCliente, updateCliente, getCliente, deleteCliente } from "../Api/Clientes.api";
+import { createCliente, updateCliente, getCliente, deleteCliente, listTipoDocumento } from "../Api/Clientes.api";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from 'react-hot-toast';
 import { Link } from "react-router-dom";
@@ -51,25 +51,27 @@ export function ClienteFormPage() {
         setValue('tipo_documento', data.tipo_documento);
         setValue('email', data.email);
         setValue('fecha_nacimiento', data.fecha_nacimiento,);
+        setTipoDocumentoValue(data.tipo_documento);
       }
     };
     loadCliente();
   }, [])
 
-  /* Se ianctiva debido a problemas al editar y en el value= todos quedan en cedula
-  y no se muy bien a que se pueda deber 
   const [tiposDocumento, setTiposDocumento] = useState([]);
-
+  const [tipoDocumentoValue, setTipoDocumentoValue] = useState('');
   useEffect(() => {
-    async function tipoListDocumento() {
+    async function ListarTipoDocumento() {
       const resList = await listTipoDocumento();
-      console.log(resList)
       setTiposDocumento(resList.data);
+      if (params.id) {
+        const { data } = await getCliente(params.id);
+        setTipoDocumentoValue(data.tipo_documento);
+      }
     }
-    tipoListDocumento();
+    ListarTipoDocumento();
   }, []);
-  */
-  
+
+
   return (
     <main className="container-sm mb-12">
       <div className="row py-3">
@@ -81,26 +83,26 @@ export function ClienteFormPage() {
               <label htmlFor="nombre_completo">Nombre Completo:</label>
               <input type="text" placeholder="Ingrese el nombre completo" className="form-control mt-1 mayus" {...register("nombre_completo", { required:true })}/>
             </div>
-            {/*
+            {
             <div className="py-2 col-md-4">
               <label htmlFor="tipo_documento">Tipo Documento:</label>
-              <select name="tipo_documento" className="form-select input-group mt-1">
+              <select name="tipo_documento" className="form-select input-group mt-1" {...register('tipo_documento')} defaultValue={tipoDocumentoValue}>
                 <option value="0">Selecionar</option>
-                {tiposDocumento.map((tipo) => (
-                  <option value={tipo[0]} key={tipo[1]} {...register("tipo_documento")}>{tipo[1]}</option>
+                {tiposDocumento.map((option) => (
+                  <option value={option[0]} key={option[0]}>{option[1]}</option>
                 ))}
               </select>
             </div>
-            */}
-            <div className="py-2 col-md-5">
+                }
+            <div className="py-2 col-md-4">
               <label htmlFor="numero_documento">Numero Documento:</label>
               <input type="text" placeholder="Ingrese el documento" className="form-control mt-1" {...register("numero_documento", { required:true })}/>
             </div>
-            <div className="py-2 col-md-6">
+            <div className="py-2 col-md-5">
               <label htmlFor="email">Email:</label>
               <input type="email" placeholder="Ingresal el correo" className="form-control mt-1" {...register("email")}/>
             </div>
-            <div className="py-2 col-md-6">
+            <div className="py-2 col-md-3">
               <label htmlFor="fecha_nacimiento">Fecha de Nacimiento</label>
               <input type="date" name="fecha_nacimiento" className="form-control mt-1" {...register("fecha_nacimiento")} defaultValue={""}/>
             </div>

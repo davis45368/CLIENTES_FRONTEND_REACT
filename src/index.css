@@ -16,6 +16,8 @@ li {
     border-radius: 2%;
 }
 
+/*Estilos a la etiqueta link para que se paresca un link*/
+
 .link {
     color: #53bdeb;
     text-transform: uppercase;
@@ -24,4 +26,36 @@ li {
 
 .link:hover {
     cursor: pointer;
+}
+
+
+/*Texto emergente en tipo de documento*/
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-container:hover .tooltip {
+    opacity: 1;
+}
+
+span{
+    position: relative;
+}
+
+span:hover{
+    cursor: pointer;
+}
+
+span[title]:hover:after{
+    content: "Tipo de documento";
+    display: block;
+    position: absolute;
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
